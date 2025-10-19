@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لهنت🐧🐧لهنت</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{
+      font-family:'Tajawal',system-ui,sans-serif; 
+      background:#392015;
+      background-image:
+        radial-gradient(at 20% 30%, rgba(153,61,75,0.2) 0, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(102,48,165,0.25) 0, transparent 50%),
+        radial-gradient(at 0% 80%, rgba(0,120,105,0.2) 0, transparent 50%);
+      color:#F2E7DE; 
+      min-height:100vh; 
+      padding:20px;
+      position:relative;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:''; position:fixed; inset:0;
+      background:
+        linear-gradient(90deg, rgba(242,231,222,0.03) 1px, transparent 1px),
+        linear-gradient(rgba(242,231,222,0.03) 1px, transparent 1px);
+      background-size:50px 50px; pointer-events:none; z-index:0;
+    }
+    .wrap{ max-width:1100px; margin:0 auto; position:relative; z-index:1; }
+    h1{
+      font-size:clamp(24px, 5vw, 40px); font-weight:900;
+      background:linear-gradient(135deg, #973D4B 0%, #AC646F 30%, #6630A5 60%, #007869 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      margin:0 0 6px; text-align:center; letter-spacing:-0.5px;
+      filter:drop-shadow(0 0 20px rgba(153,61,75,0.4));
+    }
+    p.lead{ text-align:center; color:#DDBFA7; font-size:14px; margin:0 0 24px; }
+    .card{
+      background:rgba(97,76,68,0.4);
+      border:1px solid rgba(212,175,145,0.2);
+      border-radius:24px; padding:24px; backdrop-filter:blur(20px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(242,231,222,0.1);
+      transition:all 0.3s ease;
+    }
+    .card:hover{ border-color:rgba(212,175,145,0.3); box-shadow:0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(242,231,222,0.15); }
+    textarea, input{
+      width:100%; border-radius:16px; padding:14px 18px;
+      border:1px solid rgba(221,191,167,0.3); outline:none; background:rgba(97,76,68,0.45);
+      color:#F2E7DE; font-size:15px; font-family:inherit; transition:all 0.3s ease;
+    }
+    textarea{min-height:100px}
+    textarea::placeholder, input::placeholder{ color:rgba(221,191,167,0.5); }
+    textarea:focus, input:focus{
+      background:rgba(136,121,115,0.45); border-color:#AC646F; box-shadow:0 0 0 3px rgba(172,100,111,0.22);
+    }
+    label{ display:block; font-size:12px; font-weight:600; color:#DDBFA7; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px; }
+    .row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:16px; }
+    button{
+      background:linear-gradient(135deg, #973D4B 0%, #AC646F 100%);
+      color:#F2E7DE; border:none; padding:12px 20px; border-radius:12px; cursor:pointer;
+      font-size:14px; font-weight:700; font-family:inherit; transition:all 0.3s ease;
+      box-shadow:0 4px 15px rgba(151,61,75,0.4); position:relative; overflow:hidden;
+    }
+    button::before{ content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(242,231,222,0.2), transparent); transition:left 0.5s; }
+    button:hover::before{ left:100%; }
+    button:hover{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(151,61,75,0.5); }
+    button:active{ transform:translateY(0); }
+    button.secondary{ background:linear-gradient(135deg, #007869 0%, #339687 100%); box-shadow:0 4px 15px rgba(0,120,105,0.4); }
+    button.secondary:hover{ box-shadow:0 6px 20px rgba(0,120,105,0.5); }
+    button.ghost{ background:transparent; border:2px solid rgba(212,175,145,0.3); box-shadow:none; }
+    button.ghost:hover{ background:rgba(97,76,68,0.3); border-color:rgba(212,175,145,0.5); box-shadow:none; }
+    .grid{ display:grid; grid-template-columns:repeat(1,1fr); gap:20px; margin-top:20px; }
+    @media(min-width:880px){ .grid{grid-template-columns:1.1fr 0.9fr} }
+    .section{ background:rgba(97,76,68,0.3); border:1px solid rgba(212,175,145,0.15); border-radius:20px; padding:20px; backdrop-filter:blur(10px); }
+    .section h3{ margin:0 0 16px; font-size:18px; font-weight:700; color:#F2E7DE; display:flex; align-items:center; gap:8px; }
+    .section h3::before{ content:''; width:4px; height:20px; background:linear-gradient(180deg, #973D4B, #6630A5); border-radius:2px; }
+    .mono{ font-family:ui-monospace,'SF Mono',Consolas,monospace; }
+    .kv{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin:10px 0; padding:12px 16px; border-radius:14px; background:rgba(57,32,21,0.4); border:1px solid rgba(221,191,167,0.2); transition:all 0.2s ease; }
+    .kv:hover{ background:rgba(136,121,115,0.35); border-color:rgba(212,175,145,0.35); }
+    .kv span:first-child{ color:#DDBFA7; font-size:13px; font-weight:600; }
+    .kv code{ font-size:14px; color:#F2E7DE; font-weight:500; }
+    .pill{ display:inline-block; padding:6px 12px; border-radius:20px; background:rgba(102,48,165,0.3); color:#E5CFBD; font-size:11px; font-weight:700; border:1px solid rgba(102,48,165,0.4); text-transform:uppercase; letter-spacing:0.5px; }
+    .ok{ color:#339687; font-weight:700; }
+    .err{ color:#AC646F; font-weight:700; }
+    .foot{ margin-top:16px; padding-top:16px; border-top:1px solid rgba(221,191,167,0.2); color:#DDBFA7; font-size:12px; line-height:1.6; }
+    .result{ white-space:pre-wrap; margin-bottom:12px; padding:12px; background:rgba(97,76,68,0.45); border-radius:12px; min-height:40px; border:1px solid rgba(221,191,167,0.15); }
+    .mapbox{ height:320px; border-radius:16px; overflow:hidden; border:1px solid rgba(212,175,145,0.25); box-shadow:0 8px 24px rgba(0,0,0,0.4); box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+    iframe{ width:100%; height:100%; border:0; }
+    .input-group{ margin-bottom:12px; }
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+    .card, .section{ animation:fadeIn 0.5s ease backwards; }
+    .section:nth-child(2){animation-delay:0.1s}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>اداة مصنوعه خصيصا لاستاذ نااااصر ✨</h1>
+
+    <div class="card">
+      <div class="section" style="margin-top:20px">
+        <h3>تحويل UTM (N ثم E)</h3>
+        <div class="row" style="margin-top:0">
+          <div style="flex:1; min-width:150px">
+            <label>N</label>
+            <input id="ne-n" type="text" inputmode="decimal" placeholder="Northing ">
+          </div>
+          <div style="flex:1; min-width:150px">
+            <label>E</label>
+            <input id="ne-e" type="text" inputmode="decimal" placeholder="Easting">
+          </div>
+          <div style="flex:0.6; min-width:120px">
+            <label>Zone</label>
+            <input id="ne-zone" type="text" inputmode="numeric" placeholder="اختياري">
+          </div>
+          <div style="display:flex; align-items:end">
+            <button id="convert-ne">تحويل N/E</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="section">
+          <h3>النتيجة</h3>
+          <div id="status" class="result">—</div>
+          <div class="kv"><span>Latitude (N)</span><code id="lat" class="mono">—</code><button class="ghost" id="copy-lat">نسخ</button></div>
+          <div class="kv"><span>Longitude (E)</span><code id="lon" class="mono">—</code><button class="ghost" id="copy-lon">نسخ</button></div>
+          <div class="row">
+            <button id="open-gm2">📍 فتح في Google Maps</button>
+          </div>
+          </div>
+        <div class="section">
+          <div class="mapbox"><iframe id="map" title="map"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.2/proj4.js"></script>
+
+  <script>
+  const fmt = n => Number(n).toFixed(8);
+  let last = null;
+  const el = id => document.getElementById(id);
+
+  function pickZoneForSouthKSA(easting, northing, prefer){
+    const zones = prefer ? [prefer] : [37,38,39,40];
+    for(const z of zones){
+      try{
+        const from = `+proj=utm +zone=${z} +datum=WGS84 +units=m +no_defs`;
+        const [lon, lat] = proj4(from, '+proj=longlat +datum=WGS84 +no_defs', [easting, northing]);
+        const inSouthKSA = (lat>=15 && lat<=22.5) && (lon>=41 && lon<=50.5);
+        if(inSouthKSA) return {z, lat, lon};
+      }catch{}
+    }
+    // لا نرجع أي نتيجة خارج نطاق جنوب السعودية
+    if (prefer) {
+      try{
+        const from = `+proj=utm +zone=${prefer} +datum=WGS84 +units=m +no_defs`;
+        const [lon, lat] = proj4(from, '+proj=longlat +datum=WGS84 +no_defs', [easting, northing]);
+        const inSouthKSA = (lat>=15 && lat<=22.5) && (lon>=41 && lon<=50.5);
+        if(inSouthKSA) return {z: prefer, lat, lon};
+      }catch{}
+    }
+    return null;
+  }
+
+  function render(res){
+    if(!res){ el('status').innerHTML = `<span class="err">❌ لم أتمكن من التعرف على الإحداثي.</span>`; return; }
+    const lat = +res.lat, lon = +res.lon;
+    last = {lat, lon};
+    el('status').innerHTML = `<span class="ok">✅ تم التحويل</span> <span class="pill">UTM (NE) — Zone ${res.z ?? '—'}</span>`;
+    el('lat').textContent = fmt(lat);
+    el('lon').textContent = fmt(lon);
+    const osm = `https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.005}%2C${lat-0.003}%2C${lon+0.005}%2C${lat+0.003}&layer=mapnik&marker=${lat}%2C${lon}`;
+    el('map').src = osm;
+  }
+
+  function convertNEQuick(){
+    const n = parseFloat(el('ne-n').value);
+    const e = parseFloat(el('ne-e').value);
+    const zVal = el('ne-zone').value.trim();
+    if(!Number.isFinite(n) || !Number.isFinite(e)){
+      el('status').innerHTML = '<span class="err">❌ أدخل N و E صحيحين بالمتر</span>';
+      return;
+    }
+    const prefer = zVal? parseInt(zVal,10) : undefined;
+    const res = pickZoneForSouthKSA(e, n, prefer);
+    if(!res){ el('status').innerHTML = '<span class="err">الاحداثي خارج نطاق الجنوب 🚫 (عذرا لا تستطيع اخراج الجنوب من الجنوبي)</span>'; return; }
+    render(res);
+  }
+
+  function openMaps(){
+    if(!last) return;
+    const {lat, lon} = last;
+    const g = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
+    window.open(g,'_blank');
+  }
+
+  function copyToClipboard(text){
+    if(!text) return;
+    navigator.clipboard.writeText(text).then(()=>{
+      const s = el('status');
+      const old = s.innerHTML;
+      s.innerHTML = '<span class="ok">📋 تم النسخ!</span>';
+      setTimeout(()=>{ s.innerHTML = old; }, 1000);
+    });
+  }
+
+  // Bind events (essentials only)
+  const btnConvNE = el('convert-ne'); if(btnConvNE) btnConvNE.onclick = convertNEQuick;
+  const btnConvert = el('convert'); if(btnConvert) btnConvert.onclick = convertNEQuick;
+  const btnSwap = el('swap'); if(btnSwap) btnSwap.onclick = ()=>{ if(!last) return; const t = last.lat; last.lat = last.lon; last.lon=t; render(last); };
+  const btnGM = el('open-gm'); if(btnGM) btnGM.onclick = openMaps;
+  const btnGM2 = el('open-gm2'); if(btnGM2) btnGM2.onclick = openMaps;
+  const btnCopyLat = el('copy-lat'); if(btnCopyLat) btnCopyLat.onclick = ()=> last && copyToClipboard(fmt(last.lat));
+  const btnCopyLon = el('copy-lon'); if(btnCopyLon) btnCopyLon.onclick = ()=> last && copyToClipboard(fmt(last.lon));
+</script>
